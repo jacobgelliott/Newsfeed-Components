@@ -114,3 +114,68 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+  // Element Creation, textContent, assigning classes, and appending.
+  // Div
+  const div = document.createElement('div')
+  div.classList.add('article')
+  // div.append(title)
+  // Header
+  const header = document.createElement('h2')
+  header.textContent = title
+  div.appendChild(header)
+  // Date
+  const articleDate = document.createElement('p')
+  articleDate.classList.add('date')
+  articleDate.textContent = date;
+  div.appendChild(articleDate)
+  // Paragraphs
+  const firstPara = document.createElement('p')
+  const secondPara = document.createElement('p')
+  const thirdPara = document.createElement('p')
+  firstPara.textContent = firstParagraph
+  secondPara.textContent = secondParagraph
+  thirdPara.textContent = thirdParagraph
+  div.appendChild(firstPara)
+  div.appendChild(secondPara)
+  div.appendChild(thirdPara)
+  // Button
+  const expButton = document.createElement('span')
+  expButton.classList.add('expandButton')
+  expButton.textContent ='+'
+  div.appendChild(expButton)
+  expButton.addEventListener('click', () => {
+    div.classList.toggle('article-open')
+  })
+  return div
+}
+
+const newArticle = {
+  title: 'Things and stuff',
+  date: 'Jan 19, 1993',
+  firstParagraph: `Bills dance pui. Fasha froug minotia boo ha radar launch blueberry dolltaki ha red ball garlic appule. Earth arqua papoi ginger 18 yamcha dolltaki toriyama papoi mercenary. Arqua radar. Namek cacao zarbon dolltaki bujin machine. Broly goten zangya namekian commander kai corporation 18 spice ha. Gohan cacao olibu ultimate moon burter raspberry hirudegarm freezer towa tail. Froug akira fighters. Amond ozaru rasin puar korin fighter chi-chi energy 18. Goten roshi hame mercenary uub dolltaki bio-broly bido popo ha. Fasha bujin gravity uub mustard olibu luud goten shu fighters z. Arale brief. Papoi goten. Earth blood fasha dr. satan. Satan namek bebi. Papoi namek. Bulma videl corporation namekian lakasei 18 chaozu yamcha supreme tarble bills. `,
+
+  secondParagraph: `Force roshi. Olibu spice. Goten froug daiz namekian pan. Jeice fasha mustard mercenary king red shugesh ape 17. Bulma blood. Satan dende. Brief arale suno ribbon pan cell toriyama. Dance rasin red ball king yamcha baba cui. Bills maron marron guido chi-chi brief 18 commander whis great blueberry dodoria. Super spice pai salt tenshinhan ha baba papoi ha 18. Papoi robot uub videl red commander shorty. Earth namek. Salza bujin yajirobe 17. Roshi froug. Ultra great corporation fighters blueberry kogu journey mercenary cold. Orlen roshi. Bulma nicky. `,
+
+  thirdParagraph: `  Bulma great corporation dolltaki minotia corporation caterpy kado bio-broly freeza tournament. Rasin pilaf flying tarble commander namekian daemon luud caterpy. Akira miira yamcha world 18. Radar videl dr. aka god 18 trunks minotia kogu. Ozaru super. Rasin dance papoi appule blueberry tao namekian power sansho. Salza orlen ultimate tournament future ha 17 salt fighters nam. Roshi bulma great dolltaki son satan commander 17 akira corporation. Force cacao blueberry. Majin korin shorty olibu. Radar fasha chi-chi blueberry 17 raditz 17 kame orlen blood. Great arqua arale corporation ha daemon. Cacao nicky raditz corporation commander bojack flying majin 18 bio-broly shugesh fasha. Miira earth saiyan flying ball satan ha. Guido broly yajirobe 17 gohan ha nimbus bio-broly. Guido bulma namole corporation olibu bio-broly. Akira dance. Olibu nicky borgos ozaru namekian force dore onio dolltaki boo.`
+}
+
+data.push(newArticle)
+
+data.forEach(data => {
+  const div = articleMaker(data)
+  document.body.appendChild(div)
+}) 
+
+// const newArticle = {
+//   title: 'Things and stuff',
+//   date: 'Jan 19, 1993',
+//   firstParagraph: `Bills dance pui. Fasha froug minotia boo ha radar launch blueberry dolltaki ha red ball garlic appule. Earth arqua papoi ginger 18 yamcha dolltaki toriyama papoi mercenary. Arqua radar. Namek cacao zarbon dolltaki bujin machine. Broly goten zangya namekian commander kai corporation 18 spice ha. Gohan cacao olibu ultimate moon burter raspberry hirudegarm freezer towa tail. Froug akira fighters. Amond ozaru rasin puar korin fighter chi-chi energy 18. Goten roshi hame mercenary uub dolltaki bio-broly bido popo ha. Fasha bujin gravity uub mustard olibu luud goten shu fighters z. Arale brief. Papoi goten. Earth blood fasha dr. satan. Satan namek bebi. Papoi namek. Bulma videl corporation namekian lakasei 18 chaozu yamcha supreme tarble bills. `,
+
+//   secondParagraph: `Force roshi. Olibu spice. Goten froug daiz namekian pan. Jeice fasha mustard mercenary king red shugesh ape 17. Bulma blood. Satan dende. Brief arale suno ribbon pan cell toriyama. Dance rasin red ball king yamcha baba cui. Bills maron marron guido chi-chi brief 18 commander whis great blueberry dodoria. Super spice pai salt tenshinhan ha baba papoi ha 18. Papoi robot uub videl red commander shorty. Earth namek. Salza bujin yajirobe 17. Roshi froug. Ultra great corporation fighters blueberry kogu journey mercenary cold. Orlen roshi. Bulma nicky. `,
+
+//   thirdParagraph: `  Bulma great corporation dolltaki minotia corporation caterpy kado bio-broly freeza tournament. Rasin pilaf flying tarble commander namekian daemon luud caterpy. Akira miira yamcha world 18. Radar videl dr. aka god 18 trunks minotia kogu. Ozaru super. Rasin dance papoi appule blueberry tao namekian power sansho. Salza orlen ultimate tournament future ha 17 salt fighters nam. Roshi bulma great dolltaki son satan commander 17 akira corporation. Force cacao blueberry. Majin korin shorty olibu. Radar fasha chi-chi blueberry 17 raditz 17 kame orlen blood. Great arqua arale corporation ha daemon. Cacao nicky raditz corporation commander bojack flying majin 18 bio-broly shugesh fasha. Miira earth saiyan flying ball satan ha. Guido broly yajirobe 17 gohan ha nimbus bio-broly. Guido bulma namole corporation olibu bio-broly. Akira dance. Olibu nicky borgos ozaru namekian force dore onio dolltaki boo.`
+// }
+
+// data.push(newArticle)
